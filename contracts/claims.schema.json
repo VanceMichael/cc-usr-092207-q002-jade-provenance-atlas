@@ -1,0 +1,213 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "海外良渚玉器谱系库声明与身份关联",
+  "type": "object",
+  "required": [
+    "domain",
+    "version",
+    "claims",
+    "identity_links"
+  ],
+  "properties": {
+    "domain": {
+      "const": "jade-provenance-atlas"
+    },
+    "version": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "claims": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/claim"
+      }
+    },
+    "identity_links": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/identity_link"
+      }
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "claim": {
+      "type": "object",
+      "description": "一条关于器物、机构、人物、事件、出版物或图像的断言。任何结论都必须能回到 source（原始记录）、proposer（提出者）与 valid_from/valid_to（有效时间）。声明只增不改：新证据以 supersede 或 retract 处理，旧声明保留。",
+      "required": [
+        "claim_id",
+        "subject",
+        "predicate",
+        "value",
+        "source",
+        "proposer",
+        "proposed_at",
+        "confidence",
+        "status",
+        "visibility"
+      ],
+      "properties": {
+        "claim_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "subject": {
+          "type": "string",
+          "minLength": 1,
+          "description": "主体标识，如 artifact:LZ-CONG-0001、img:LZ-CONG-0001-01"
+        },
+        "predicate": {
+          "enum": [
+            "has_name",
+            "has_measurement",
+            "has_decoration",
+            "has_rework_trace",
+            "dated_to",
+            "from_culture",
+            "held_by",
+            "formerly_owned_by",
+            "transferred_in",
+            "published_in",
+            "depicted_in",
+            "has_license"
+          ]
+        },
+        "value": true,
+        "source": {
+          "type": "object",
+          "required": [
+            "kind",
+            "ref"
+          ],
+          "properties": {
+            "kind": {
+              "enum": [
+                "catalogue",
+                "publication",
+                "inspection",
+                "correspondence",
+                "excavation_report",
+                "sale_record"
+              ]
+            },
+            "ref": {
+              "type": "string",
+              "minLength": 1
+            },
+            "detail": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        },
+        "proposer": {
+          "type": "string",
+          "minLength": 1
+        },
+        "proposed_at": {
+          "type": "string",
+          "minLength": 4
+        },
+        "confidence": {
+          "enum": [
+            "high",
+            "medium",
+            "low"
+          ]
+        },
+        "valid_from": {
+          "type": "string"
+        },
+        "valid_to": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "status": {
+          "enum": [
+            "active",
+            "superseded",
+            "retracted"
+          ]
+        },
+        "superseded_by": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "visibility": {
+          "enum": [
+            "public",
+            "restricted",
+            "internal"
+          ],
+          "description": "public 公众可查；restricted 限授权学者；internal 馆方未公开材料"
+        }
+      },
+      "additionalProperties": false
+    },
+    "identity_link": {
+      "type": "object",
+      "description": "两条器物记录之间的“同一器物”关联。只经历 candidate -> accepted / rejected 单向流转，被否决的关联保留，不做记录合并。",
+      "required": [
+        "link_id",
+        "artifact_a",
+        "artifact_b",
+        "link_status",
+        "rationale",
+        "proposer",
+        "proposed_at",
+        "visibility"
+      ],
+      "properties": {
+        "link_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "artifact_a": {
+          "type": "string",
+          "minLength": 1
+        },
+        "artifact_b": {
+          "type": "string",
+          "minLength": 1
+        },
+        "link_status": {
+          "enum": [
+            "candidate",
+            "accepted",
+            "rejected"
+          ]
+        },
+        "rationale": {
+          "type": "string",
+          "minLength": 1
+        },
+        "proposer": {
+          "type": "string",
+          "minLength": 1
+        },
+        "proposed_at": {
+          "type": "string",
+          "minLength": 4
+        },
+        "decided_by": {
+          "type": "string"
+        },
+        "decided_at": {
+          "type": "string"
+        },
+        "visibility": {
+          "enum": [
+            "public",
+            "restricted",
+            "internal"
+          ]
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

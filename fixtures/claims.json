@@ -1,0 +1,269 @@
+{
+  "domain": "jade-provenance-atlas",
+  "version": 1,
+  "claims": [
+    {
+      "claim_id": "c-0001",
+      "subject": "artifact:LZ-CONG-0001",
+      "predicate": "has_name",
+      "value": "周玉琮",
+      "source": {
+        "kind": "catalogue",
+        "ref": "M-外博-01《藏玉图录》1923年第114号",
+        "detail": "入藏时定名"
+      },
+      "proposer": "馆方编目（1923）",
+      "proposed_at": "1923",
+      "confidence": "low",
+      "valid_from": "1923",
+      "valid_to": "1987",
+      "status": "superseded",
+      "superseded_by": "c-0003",
+      "visibility": "public"
+    },
+    {
+      "claim_id": "c-0002",
+      "subject": "artifact:LZ-CONG-0001",
+      "predicate": "dated_to",
+      "value": "周至汉",
+      "source": {
+        "kind": "catalogue",
+        "ref": "M-外博-01《藏玉图录》1923年第114号"
+      },
+      "proposer": "馆方编目（1923）",
+      "proposed_at": "1923",
+      "confidence": "low",
+      "valid_from": "1923",
+      "valid_to": "1987",
+      "status": "superseded",
+      "superseded_by": "c-0004",
+      "visibility": "public"
+    },
+    {
+      "claim_id": "c-0003",
+      "subject": "artifact:LZ-CONG-0001",
+      "predicate": "has_name",
+      "value": "良渚文化玉琮",
+      "source": {
+        "kind": "inspection",
+        "ref": "1987年馆方与研究院联合检视记录"
+      },
+      "proposer": "researcher:RY-02",
+      "proposed_at": "1987",
+      "confidence": "high",
+      "valid_from": "1987",
+      "valid_to": null,
+      "status": "active",
+      "superseded_by": null,
+      "visibility": "public"
+    },
+    {
+      "claim_id": "c-0004",
+      "subject": "artifact:LZ-CONG-0001",
+      "predicate": "dated_to",
+      "value": "良渚文化晚期（约公元前2500年）",
+      "source": {
+        "kind": "inspection",
+        "ref": "1987年馆方与研究院联合检视记录"
+      },
+      "proposer": "researcher:RY-02",
+      "proposed_at": "1987",
+      "confidence": "high",
+      "valid_from": "1987",
+      "valid_to": null,
+      "status": "active",
+      "superseded_by": null,
+      "visibility": "public"
+    },
+    {
+      "claim_id": "c-0005",
+      "subject": "artifact:LZ-CONG-0001",
+      "predicate": "dated_to",
+      "value": "新石器时代晚期，具体文化归属待议",
+      "source": {
+        "kind": "publication",
+        "ref": "《海外藏良渚玉器再检讨》2019"
+      },
+      "proposer": "researcher:RX-11",
+      "proposed_at": "2019",
+      "confidence": "medium",
+      "valid_from": "2019",
+      "valid_to": null,
+      "status": "active",
+      "superseded_by": null,
+      "visibility": "public"
+    },
+    {
+      "claim_id": "c-0006",
+      "subject": "artifact:LZ-CONG-0001",
+      "predicate": "has_measurement",
+      "value": {
+        "height_cm": 8.9,
+        "width_cm": 7.6,
+        "hole_diameter_cm": 5.1
+      },
+      "source": {
+        "kind": "inspection",
+        "ref": "1987年馆方与研究院联合检视记录"
+      },
+      "proposer": "researcher:RY-02",
+      "proposed_at": "1987",
+      "confidence": "high",
+      "valid_from": "1987",
+      "valid_to": null,
+      "status": "active",
+      "superseded_by": null,
+      "visibility": "public"
+    },
+    {
+      "claim_id": "c-0007",
+      "subject": "artifact:LZ-CONG-0001",
+      "predicate": "has_decoration",
+      "value": "四角简化神人兽面纹，阴线刻",
+      "source": {
+        "kind": "inspection",
+        "ref": "1987年馆方与研究院联合检视记录"
+      },
+      "proposer": "researcher:RY-02",
+      "proposed_at": "1987",
+      "confidence": "high",
+      "valid_from": "1987",
+      "valid_to": null,
+      "status": "active",
+      "superseded_by": null,
+      "visibility": "public"
+    },
+    {
+      "claim_id": "c-0008",
+      "subject": "artifact:LZ-CONG-0001",
+      "predicate": "has_rework_trace",
+      "value": "上端射口一处后世磨平修整",
+      "source": {
+        "kind": "inspection",
+        "ref": "2021年馆方未公开检修报告"
+      },
+      "proposer": "conservator:BG-03",
+      "proposed_at": "2021",
+      "confidence": "high",
+      "valid_from": "2021",
+      "valid_to": null,
+      "status": "active",
+      "superseded_by": null,
+      "visibility": "internal"
+    },
+    {
+      "claim_id": "c-0009",
+      "subject": "artifact:LZ-CONG-0001",
+      "predicate": "formerly_owned_by",
+      "value": "collector:C-甲（未授权公开姓名）",
+      "source": {
+        "kind": "sale_record",
+        "ref": "1936年古董商D-07售品账"
+      },
+      "proposer": "archivist:DA-01",
+      "proposed_at": "1998",
+      "confidence": "medium",
+      "valid_from": "1998",
+      "valid_to": null,
+      "status": "active",
+      "superseded_by": null,
+      "visibility": "restricted"
+    },
+    {
+      "claim_id": "c-0010",
+      "subject": "artifact:LZ-CONG-0001",
+      "predicate": "transferred_in",
+      "value": "1936年经古董商D-07售予M-外博-01",
+      "source": {
+        "kind": "sale_record",
+        "ref": "1936年古董商D-07售品账"
+      },
+      "proposer": "archivist:DA-01",
+      "proposed_at": "1998",
+      "confidence": "medium",
+      "valid_from": "1998",
+      "valid_to": null,
+      "status": "active",
+      "superseded_by": null,
+      "visibility": "public"
+    },
+    {
+      "claim_id": "c-0011",
+      "subject": "artifact:LZ-CONG-0001",
+      "predicate": "published_in",
+      "value": "pub:1923-藏玉图录-114",
+      "source": {
+        "kind": "catalogue",
+        "ref": "M-外博-01《藏玉图录》1923年第114号"
+      },
+      "proposer": "archivist:DA-01",
+      "proposed_at": "1998",
+      "confidence": "high",
+      "valid_from": "1998",
+      "valid_to": null,
+      "status": "active",
+      "superseded_by": null,
+      "visibility": "public"
+    },
+    {
+      "claim_id": "c-0012",
+      "subject": "img:LZ-CONG-0001-01",
+      "predicate": "has_license",
+      "value": "馆方授权，仅限非商业研究使用",
+      "source": {
+        "kind": "correspondence",
+        "ref": "2024年馆方授权函"
+      },
+      "proposer": "馆方权利部门",
+      "proposed_at": "2024",
+      "confidence": "high",
+      "valid_from": "2024",
+      "valid_to": null,
+      "status": "active",
+      "superseded_by": null,
+      "visibility": "public"
+    },
+    {
+      "claim_id": "c-0013",
+      "subject": "artifact:LZ-CONG-0001",
+      "predicate": "held_by",
+      "value": "institution:M-外博-01",
+      "source": {
+        "kind": "catalogue",
+        "ref": "M-外博-01《藏玉图录》1923年第114号"
+      },
+      "proposer": "馆方编目（1923）",
+      "proposed_at": "1923",
+      "confidence": "high",
+      "valid_from": "1923",
+      "valid_to": null,
+      "status": "active",
+      "superseded_by": null,
+      "visibility": "public"
+    }
+  ],
+  "identity_links": [
+    {
+      "link_id": "L-0001",
+      "artifact_a": "artifact:LZ-CONG-0001",
+      "artifact_b": "artifact:拍品-1978-伦敦-114",
+      "link_status": "candidate",
+      "rationale": "尺寸与纹饰描述接近，待比对拍卖图录图像",
+      "proposer": "researcher:RY-02",
+      "proposed_at": "2022",
+      "visibility": "public"
+    },
+    {
+      "link_id": "L-0002",
+      "artifact_a": "artifact:LZ-CONG-0001",
+      "artifact_b": "artifact:馆藏-琮-07（另一机构）",
+      "link_status": "rejected",
+      "rationale": "初判同器，后据纹饰布局与孔径差异否决",
+      "proposer": "archivist:DA-01",
+      "proposed_at": "1998",
+      "decided_by": "researcher:RY-02",
+      "decided_at": "2003",
+      "visibility": "public"
+    }
+  ]
+}
