@@ -1,0 +1,247 @@
+{
+  "record_id": "lzp-0001",
+  "schema_version": 1,
+  "artifact": {
+    "artifact_id": "jade-0001",
+    "object_type": "琮",
+    "current_holder": {
+      "organization": "示例博物馆",
+      "accession_no": "EX-1937-042",
+      "since": "1937"
+    },
+    "note": "示例数据，机构与人物均为虚构"
+  },
+  "sources": [
+    {
+      "source_id": "src-1",
+      "kind": "catalog",
+      "citation": "《示例馆藏品图录》第一辑，1936年，第42号",
+      "reliability": "medium",
+      "date": "1936",
+      "note": "早期图录将多件良渚玉器误定为周汉"
+    },
+    {
+      "source_id": "src-2",
+      "kind": "archive",
+      "citation": "示例博物馆入藏登记簿，1937年3月",
+      "reliability": "high",
+      "date": "1937-03"
+    },
+    {
+      "source_id": "src-3",
+      "kind": "publication",
+      "citation": "某研究者：《海外藏良渚玉器札记》，1988年",
+      "reliability": "high",
+      "date": "1988"
+    },
+    {
+      "source_id": "src-4",
+      "kind": "correspondence",
+      "citation": "古董商（化名）与旧藏人通信抄件，约1935年，真实性待考",
+      "reliability": "low",
+      "date": "1935"
+    },
+    {
+      "source_id": "src-5",
+      "kind": "collection_record",
+      "citation": "另一示例机构藏品档案，2023年比对函",
+      "reliability": "medium",
+      "date": "2023"
+    }
+  ],
+  "observations": [
+    {
+      "observation_id": "obs-1",
+      "kind": "dimension",
+      "summary": "射部残，现高 8.4 厘米，射径 6.9 厘米",
+      "value": 8.4,
+      "unit": "cm",
+      "source_id": "src-2",
+      "recorded_by": "馆方修复室",
+      "recorded_at": "1937-04",
+      "confidence": "high"
+    },
+    {
+      "observation_id": "obs-2",
+      "kind": "decoration",
+      "summary": "四角分节，简化神人兽面纹，阴线细刻",
+      "source_id": "src-3",
+      "recorded_by": "研究者甲",
+      "recorded_at": "1988",
+      "confidence": "high"
+    },
+    {
+      "observation_id": "obs-3",
+      "kind": "rework_trace",
+      "summary": "一侧射口经后世改磨，孔壁有二次钻痕",
+      "source_id": "src-3",
+      "recorded_by": "研究者甲",
+      "recorded_at": "1988",
+      "confidence": "medium"
+    }
+  ],
+  "namings": [
+    {
+      "naming_id": "nam-1",
+      "name": "青玉琮式瓶",
+      "language": "zh",
+      "source_id": "src-1",
+      "proposed_by": "示例博物馆（1936年图录）",
+      "valid_from": "1936",
+      "valid_to": "1988",
+      "status": "superseded"
+    },
+    {
+      "naming_id": "nam-2",
+      "name": "良渚文化玉琮",
+      "language": "zh",
+      "source_id": "src-3",
+      "proposed_by": "研究者甲",
+      "valid_from": "1988",
+      "valid_to": null,
+      "status": "current"
+    }
+  ],
+  "provenance_events": [
+    {
+      "event_id": "evt-1",
+      "kind": "collection",
+      "date_from": "1910",
+      "date_to": "1935",
+      "to_party": "某旧藏人（化名）",
+      "place": "上海",
+      "source_id": "src-4",
+      "confidence": "low",
+      "note": "仅见通信抄件，与图录记载相矛盾，并列存疑"
+    },
+    {
+      "event_id": "evt-2",
+      "kind": "sale",
+      "date_from": "1936",
+      "to_party": "古董商（化名）",
+      "place": "巴黎",
+      "source_id": "src-1",
+      "confidence": "medium"
+    },
+    {
+      "event_id": "evt-3",
+      "kind": "donation",
+      "date_from": "1937-03",
+      "from_party": "古董商（化名）",
+      "to_party": "示例博物馆",
+      "source_id": "src-2",
+      "confidence": "high"
+    }
+  ],
+  "claims": [
+    {
+      "claim_id": "cla-1",
+      "kind": "dating",
+      "statement": "年代定为周至汉",
+      "proposed_by": "示例博物馆（1936年图录）",
+      "source_id": "src-1",
+      "confidence": "low",
+      "status": "superseded",
+      "valid_from": "1936",
+      "valid_to": "1988",
+      "rationale": "早期图录依据形制比定，后被良渚玉器综合研究推翻"
+    },
+    {
+      "claim_id": "cla-2",
+      "kind": "culture_attribution",
+      "statement": "属良渚文化，年代约当公元前3300—前2300年",
+      "proposed_by": "研究者甲",
+      "source_id": "src-3",
+      "confidence": "high",
+      "status": "accepted",
+      "valid_from": "1988",
+      "valid_to": null,
+      "supersedes": "cla-1",
+      "rationale": "纹饰母题与琢玉工艺同反山、瑶山出土器一致"
+    },
+    {
+      "claim_id": "cla-3",
+      "kind": "same_as",
+      "statement": "可能与另一示例机构藏品为同一件器物",
+      "target_record_id": "lzp-0117",
+      "proposed_by": "研究者乙",
+      "source_id": "src-5",
+      "confidence": "medium",
+      "status": "candidate",
+      "valid_from": "2023",
+      "valid_to": null,
+      "rationale": "尺寸与改磨痕迹接近，待实物比对，未公开"
+    },
+    {
+      "claim_id": "cla-4",
+      "kind": "ownership",
+      "statement": "入藏前曾属某旧藏人（化名）",
+      "proposed_by": "文献整理人员",
+      "source_id": "src-4",
+      "confidence": "low",
+      "status": "contested",
+      "valid_from": "1935",
+      "valid_to": null,
+      "rationale": "通信抄件与图录记载矛盾，两种流转假说并列"
+    }
+  ],
+  "images": [
+    {
+      "image_id": "img-1",
+      "description": "1936年图录黑白照片",
+      "rights_holder": "示例博物馆",
+      "license": "CC-BY-4.0",
+      "visibility": "public"
+    },
+    {
+      "image_id": "img-2",
+      "description": "2023年比对用细部照片（未公开材料）",
+      "rights_holder": "示例博物馆",
+      "visibility": "internal"
+    }
+  ],
+  "rights": {
+    "default_visibility": "restricted",
+    "policies": [
+      {
+        "policy_id": "pol-1",
+        "applies_to": "observations",
+        "audience": "public",
+        "allowed": true,
+        "set_by": "示例博物馆",
+        "note": "基本测量与描述可公开"
+      },
+      {
+        "policy_id": "pol-2",
+        "applies_to": "namings",
+        "audience": "public",
+        "allowed": true,
+        "set_by": "示例博物馆"
+      },
+      {
+        "policy_id": "pol-3",
+        "applies_to": "claims",
+        "audience": "public",
+        "allowed": true,
+        "set_by": "示例博物馆",
+        "note": "已公开的年代与归属判断及其历史沿革可公开"
+      },
+      {
+        "policy_id": "pol-4",
+        "applies_to": "cla-3",
+        "audience": "public",
+        "allowed": false,
+        "set_by": "示例博物馆",
+        "note": "候选同一性关联涉及未公开比对材料，暂不对公众显示"
+      },
+      {
+        "policy_id": "pol-5",
+        "applies_to": "claims",
+        "audience": "researcher",
+        "allowed": true,
+        "set_by": "示例博物馆",
+        "note": "学者可并列查看相互竞争的年代与流转假说"
+      }
+    ]
+  }
+}

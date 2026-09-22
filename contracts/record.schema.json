@@ -1,0 +1,222 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "海外良渚玉器谱系记录",
+  "description": "单件（或一组待甄别）玉器的谱系记录。物理身份、观察、定名、流转事件与学术判断分别保存；一切结论均可回溯到来源、提出者与有效时间；历史记录只被取代，不被删除。",
+  "type": "object",
+  "required": [
+    "record_id",
+    "schema_version",
+    "artifact",
+    "sources",
+    "observations",
+    "namings",
+    "provenance_events",
+    "claims",
+    "rights"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "record_id": {
+      "type": "string",
+      "minLength": 1,
+      "description": "谱系记录标识，稳定不变，不随定名或归属判断改变"
+    },
+    "schema_version": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "artifact": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["artifact_id", "object_type", "current_holder"],
+      "properties": {
+        "artifact_id": {
+          "type": "string",
+          "minLength": 1,
+          "description": "器物物理身份标识，与任何学术判断解耦"
+        },
+        "object_type": {
+          "type": "string",
+          "description": "器物类别（琮、璧、钺等），仅描述形制，不含年代断言"
+        },
+        "current_holder": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["organization", "accession_no"],
+          "properties": {
+            "organization": {"type": "string"},
+            "accession_no": {"type": "string"},
+            "since": {"type": "string", "description": "入藏日期或年份，格式 YYYY 或 YYYY-MM-DD"}
+          }
+        },
+        "note": {"type": "string"}
+      }
+    },
+    "sources": {
+      "type": "array",
+      "minItems": 1,
+      "description": "全部原始记录与出版物；任何观察、定名、事件、判断都必须引用此处来源",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["source_id", "kind", "citation", "reliability"],
+        "properties": {
+          "source_id": {"type": "string", "minLength": 1},
+          "kind": {
+            "type": "string",
+            "enum": ["catalog", "archive", "publication", "excavation_report", "collection_record", "correspondence", "other"]
+          },
+          "citation": {"type": "string", "minLength": 1},
+          "reliability": {"type": "string", "enum": ["high", "medium", "low"]},
+          "date": {"type": "string"},
+          "note": {"type": "string"}
+        }
+      }
+    },
+    "observations": {
+      "type": "array",
+      "description": "尺寸、纹饰、修整痕迹等可复核的物理观察，逐条带来源",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["observation_id", "kind", "summary", "source_id", "recorded_by", "recorded_at", "confidence"],
+        "properties": {
+          "observation_id": {"type": "string", "minLength": 1},
+          "kind": {
+            "type": "string",
+            "enum": ["dimension", "weight", "material", "decoration", "inscription", "rework_trace", "condition"]
+          },
+          "summary": {"type": "string", "minLength": 1},
+          "value": {"type": "number"},
+          "unit": {"type": "string"},
+          "source_id": {"type": "string"},
+          "recorded_by": {"type": "string", "description": "观察记录者，可用机构内角色代号"},
+          "recorded_at": {"type": "string"},
+          "confidence": {"type": "string", "enum": ["high", "medium", "low"]}
+        }
+      }
+    },
+    "namings": {
+      "type": "array",
+      "description": "历次定名。旧定名被取代后保留，valid_to 标记其失效时间",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["naming_id", "name", "source_id", "proposed_by", "valid_from", "valid_to", "status"],
+        "properties": {
+          "naming_id": {"type": "string", "minLength": 1},
+          "name": {"type": "string", "minLength": 1},
+          "language": {"type": "string"},
+          "source_id": {"type": "string"},
+          "proposed_by": {"type": "string"},
+          "valid_from": {"type": "string"},
+          "valid_to": {"type": ["string", "null"]},
+          "status": {"type": "string", "enum": ["current", "superseded"]}
+        }
+      }
+    },
+    "provenance_events": {
+      "type": "array",
+      "description": "出土、旧藏、交易、捐赠、借展等流转事件；相互矛盾的记载并列保存，以置信度区分",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["event_id", "kind", "source_id", "confidence"],
+        "properties": {
+          "event_id": {"type": "string", "minLength": 1},
+          "kind": {
+            "type": "string",
+            "enum": ["excavation", "find", "collection", "sale", "donation", "bequest", "transfer", "loan", "exhibition"]
+          },
+          "date_from": {"type": "string"},
+          "date_to": {"type": "string"},
+          "from_party": {"type": "string"},
+          "to_party": {"type": "string"},
+          "place": {"type": "string"},
+          "source_id": {"type": "string"},
+          "confidence": {"type": "string", "enum": ["high", "medium", "low"]},
+          "note": {"type": "string"}
+        }
+      }
+    },
+    "claims": {
+      "type": "array",
+      "description": "学术判断：同一器物、文化归属、年代、曾属某收藏等。新证据可建立候选关联或推翻旧判断；被推翻者状态改为 superseded/refuted 并保留",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["claim_id", "kind", "statement", "proposed_by", "source_id", "confidence", "status", "valid_from", "valid_to"],
+        "properties": {
+          "claim_id": {"type": "string", "minLength": 1},
+          "kind": {
+            "type": "string",
+            "enum": ["same_as", "culture_attribution", "dating", "ownership", "naming_equivalence"]
+          },
+          "statement": {"type": "string", "minLength": 1},
+          "target_record_id": {
+            "type": "string",
+            "description": "kind 为 same_as 时指向另一条谱系记录"
+          },
+          "proposed_by": {"type": "string"},
+          "source_id": {"type": "string"},
+          "confidence": {"type": "string", "enum": ["high", "medium", "low"]},
+          "status": {
+            "type": "string",
+            "enum": ["candidate", "accepted", "contested", "superseded", "refuted"]
+          },
+          "valid_from": {"type": "string"},
+          "valid_to": {"type": ["string", "null"]},
+          "supersedes": {
+            "type": "string",
+            "description": "本判断所取代的 claim_id"
+          },
+          "rationale": {"type": "string"}
+        }
+      }
+    },
+    "images": {
+      "type": "array",
+      "description": "图像及其权利；未公开材料以 visibility 控制使用范围",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["image_id", "rights_holder", "visibility"],
+        "properties": {
+          "image_id": {"type": "string", "minLength": 1},
+          "description": {"type": "string"},
+          "rights_holder": {"type": "string"},
+          "license": {"type": "string"},
+          "visibility": {"type": "string", "enum": ["public", "restricted", "internal"]}
+        }
+      }
+    },
+    "rights": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["default_visibility", "policies"],
+      "description": "馆方授权策略。默认可见性之外，可按栏目或单条记录 id 对特定受众放行或限制",
+      "properties": {
+        "default_visibility": {"type": "string", "enum": ["public", "restricted", "internal"]},
+        "policies": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["policy_id", "applies_to", "audience", "allowed", "set_by"],
+            "properties": {
+              "policy_id": {"type": "string", "minLength": 1},
+              "applies_to": {
+                "type": "string",
+                "description": "栏目名（observations/namings/provenance_events/claims/images）或具体条目 id"
+              },
+              "audience": {"type": "string", "enum": ["public", "researcher", "institution"]},
+              "allowed": {"type": "boolean"},
+              "set_by": {"type": "string", "description": "授权决定方（馆藏机构）"},
+              "note": {"type": "string"}
+            }
+          }
+        }
+      }
+    }
+  }
+}
